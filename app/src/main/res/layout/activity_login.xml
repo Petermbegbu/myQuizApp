@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:padding="15dp"
+        android:background="@color/white">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView_login_head"
+            android:layout_marginTop="30dp"
+            android:text="Signin"
+            android:textSize="35sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+        <!--Email-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_login_email"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/textView_login_head"
+            android:text="Email*"
+            android:textColor="#555555"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_login_email"
+            android:layout_below="@id/textView_login_email"
+            android:textSize="16sp"
+            android:hint="Enter your email"
+            android:inputType="textEmailAddress"
+            android:padding="6dp"/>
+
+
+        <!--Password-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_login_password"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/editText_login_email"
+            android:text="Password*"
+            android:textColor="#555555"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_login_password"
+            android:layout_below="@id/textView_login_password"
+            android:textSize="16sp"
+            android:hint="Enter your password"
+            android:inputType="textPassword"
+            android:padding="6dp"/>
+
+
+
+        <!--Confirm Password-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_login_confirm_password"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/editText_login_password"
+            android:text="Confirm Password*"
+            android:textColor="#555555"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_login_confirm_password"
+            android:layout_below="@id/textView_login_confirm_password"
+            android:textSize="16sp"
+            android:hint="Confirm your password"
+            android:inputType="textPassword"
+            android:padding="6dp"/>
+
+
+        <!--Register Button-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_signin"
+            android:text="Sign in"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/editText_login_confirm_password"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_register"
+            android:text="Don't have an account please Register"
+            android:layout_below="@+id/btn_signin"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:textSize="10sp"/>
+
+
+        <!--Progress bar-->
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:elevation="10dp"
+            android:visibility="gone"/>
+
+
+
+    </RelativeLayout>
+
+</ScrollView>

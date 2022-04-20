@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "716757201906",
+    "project_id": "myquizapp-407d3",
+    "storage_bucket": "myquizapp-407d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716757201906:android:4290076bb11c6f5751f16b",
+        "android_client_info": {
+          "package_name": "ica.myquizapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716757201906-s3rlt40cuknqpvfmnoil5fonjaptv11i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWgLUlmf3GPD-3HQhee6FDtZ3iWtNzAf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716757201906-s3rlt40cuknqpvfmnoil5fonjaptv11i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716757201906:android:96be96130dc48bd151f16b",
+        "android_client_info": {
+          "package_name": "myquizapp.ica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716757201906-s3rlt40cuknqpvfmnoil5fonjaptv11i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWgLUlmf3GPD-3HQhee6FDtZ3iWtNzAf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716757201906-s3rlt40cuknqpvfmnoil5fonjaptv11i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
