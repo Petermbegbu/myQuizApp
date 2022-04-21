@@ -1,13 +1,21 @@
 package myquizapp.ica;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_QUIZ = 1;
@@ -17,6 +25,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private TextView textViewHighscore;
 
+    private ImageView imageViewBox;
+    private static  final int REQUEST_IMAGE_CAPTURE = 101;
+
     private int highscore;
 
 
@@ -24,6 +35,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        imageViewBox = findViewById(R.id.imageView);
 
         textViewHighscore = findViewById(R.id.text_view_highscore);
         loadHighscore();
@@ -35,7 +47,38 @@ public class HomeActivity extends AppCompatActivity {
                 startQuiz();
             }
         });
+
+        //Camera Permission
+        ActivityResultLauncher<String> cameraPermission = registerForActivityResult(new ActivityResultContracts.RequestPermission(), new ActivityResultCallback<Boolean>() {
+            @Override
+            public void onActivityResult(Boolean result) {
+                if (result) {
+                    Toast.makeText(getApplicationContext(), "Camera Permission Granted", Toast.LENGTH_SHORT).show();
+                    takePicture();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Camera Permission not Granted", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        
+        Button btnImageUpload = findViewById(R.id.button_upload);
+        btnImageUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cameraPermission.launch(Manifest.permission.CAMERA);
+            }
+        });
     }
+
+
+    public void takePicture (){
+        Intent imageTakeIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        if(imageTakeIntent.resolveActivity(getPackageManager()) != null){
+            startActivityForResult(imageTakeIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
 
     private void startQuiz() {
         Intent intent = new Intent(HomeActivity.this, QuizActivity1.class);
@@ -45,6 +88,13 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQUEST_IMAGE_CAPTURE &&  resultCode == RESULT_OK){
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageViewBox.setImageBitmap(imageBitmap);
+
+        }
 
         if (requestCode == REQUEST_CODE_QUIZ) {
             if (resultCode == RESULT_OK) {

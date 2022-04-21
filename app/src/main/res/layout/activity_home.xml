@@ -11,19 +11,38 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:text="My Awesome Quiz"
         android:textColor="@android:color/black"
         android:textSize="35sp" />
 
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:id="@+id/imageView"/>
+
+    <Button
+        android:id="@+id/button_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_centerInParent="true"
+        android:text="Take a Picture" />
+
     <TextView
         android:id="@+id/text_view_highscore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/button_start_quiz"
+        android:layout_below="@id/button_upload"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
+        android:layout_marginTop="30dp"
         android:text="Highscore: 0"
         android:textSize="20sp" />
 
@@ -31,6 +50,7 @@
         android:id="@+id/button_start_quiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text_view_highscore"
         android:layout_centerInParent="true"
         android:text="Start Quiz" />
 
