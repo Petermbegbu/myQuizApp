@@ -82,6 +82,10 @@ public class LoginActivity extends AppCompatActivity {
 
                         //Move to Home Page
                         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+
+                        //Pass the email address to the home screen
+                        intent.putExtra(HomeActivity.EMAIL, textEmail);
+
                         startActivity(intent);
 
                     }else {

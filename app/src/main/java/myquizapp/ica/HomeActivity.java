@@ -23,7 +23,12 @@ public class HomeActivity extends AppCompatActivity {
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String KEY_HIGHSCORE = "keyHighscore";
 
+    public static final String EMAIL = "EMAIL";
+    private String email;
+
     private TextView textViewHighscore;
+    private TextView passedEmail;
+
 
     private ImageView imageViewBox;
     private static  final int REQUEST_IMAGE_CAPTURE = 101;
@@ -37,6 +42,14 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         imageViewBox = findViewById(R.id.imageView);
 
+        passedEmail = findViewById(R.id.passedEmail);
+
+        //pass email to the HomeActivity
+        Intent intent = getIntent();
+        email = intent.getStringExtra(EMAIL);
+        passedEmail.setText(email);
+
+        //pass highSCore
         textViewHighscore = findViewById(R.id.text_view_highscore);
         loadHighscore();
 
@@ -99,7 +112,7 @@ public class HomeActivity extends AppCompatActivity {
         if (requestCode == REQUEST_CODE_QUIZ) {
             if (resultCode == RESULT_OK) {
                 int score = data.getIntExtra(QuizActivity1.EXTRA_SCORE, 0);
-                if (score > highscore) {
+                if (score > -1) {
                     updateHighscore(score);
                 }
             }
